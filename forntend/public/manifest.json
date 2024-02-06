@@ -1,0 +1,32 @@
+{
+    "theme_color": "#f69435",
+    "background_color": "#f69435",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "\u30d6\u30e9\u30c3\u30af\u30b5\u30f3\u30c0\u30fc",
+    "short_name": "\u30d6\u30e9\u30c3\u30af\u30b5\u30f3\u30c0\u30fc",
+    "description": "Web \u00d7 IoT \u30e1\u30a4\u30ab\u30fc\u30ba\u30c1\u30e3\u30ec\u30f3\u30b8PLUS 2023 \u4fe1\u5ddeC\u30c1\u30fc\u30e0",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
