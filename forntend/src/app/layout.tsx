@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Box, Container, Paper } from "@mui/material";
+import { Box, Container, CssBaseline, Paper } from "@mui/material";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import { Header } from "@/component/layout/header";
+import { Footer } from "@/component/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,12 +26,13 @@ export default function RootLayout({
       </head>
 
       <body className={inter.className}>
+        <CssBaseline />
         <Box sx={{ bgcolor: "#F4F4F4", minHeight: "100vh" }}>
           <Container maxWidth="xs" sx={{ padding: 0 }}>
             <Paper sx={{ px: 0, bgcolor: "white", minHeight: "100vh" }}>
-              {/* <Header /> */}
+              <Header />
               {children}
-              {/* <Footer /> */}
+              <Footer />
             </Paper>
           </Container>
         </Box>

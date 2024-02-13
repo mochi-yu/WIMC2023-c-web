@@ -1,5 +1,5 @@
 import { Stack, Divider } from '@mui/material';
-import { Record } from '@/app/model/record';
+import { Record } from '@/model/record';
 import { RecordListItem } from '@/component/records/RecordListItem';
 
 interface Props {

@@ -1,5 +1,5 @@
 'use client';
-import { Record } from '@/app/model/record'
+import { Record } from '@/model/record'
 import { Card, CardActionArea, CardMedia, Stack, Typography } from '@mui/material';
 
 interface Props {
