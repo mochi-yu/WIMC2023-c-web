@@ -30,9 +30,7 @@ export default function RootLayout({
         <Box sx={{ bgcolor: "#F4F4F4", minHeight: "100vh" }}>
           <Container maxWidth="xs" sx={{ padding: 0 }}>
             <Paper sx={{ px: 0, bgcolor: "white", minHeight: "100vh" }}>
-              <Header />
               {children}
-              <Footer />
             </Paper>
           </Container>
         </Box>

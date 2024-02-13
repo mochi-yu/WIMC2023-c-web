@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
 import Image from "next/image";
 
-export default function RootPage() {
+export default function HomePage() {
   return (
     <>
-      <Typography>Rootページ</Typography>
+      <Typography>Homeページ</Typography>
     </>
   );
 }
