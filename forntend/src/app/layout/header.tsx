@@ -9,7 +9,7 @@ export function Header() {
       justifyContent="space-between"
       alignItems="center"
       spacing={2}
-      sx={{ px: '20px', bgcolor: '#006B5D' }}
+      sx={{ px: '20px', bgcolor: '#4496d3' }}
       height="80px"
     >
       <Typography fontSize={32} color="white">

@@ -17,8 +17,8 @@ export function Footer() {
   const pathname = usePathname();
 
   const footerButtonsList = [
-    { label: 'トップ', icon: <Home />, link_to: '/' },
-    { label: '記録一覧', icon: <Assignment />, link_to: '/log' },
+    { label: 'トップ', icon: <Home />, link_to: '/home' },
+    { label: '記録一覧', icon: <Assignment />, link_to: '/record' },
     { label: '目標設定', icon: <Flag />, link_to: '/goal' },
   ];
 
@@ -48,7 +48,7 @@ export function Footer() {
               showLabels
               value={pathname}
               children={footerButtons}
-              sx={{ bgcolor: '#CDE8E1' }}
+              sx={{ bgcolor: '#88b5d3' }}
             />
           </Paper>
         </Container>
