@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Box, Container, CssBaseline, Paper } from "@mui/material";
 import { Inter } from "next/font/google";
-import { Header } from "@/component/layout/header";
-import { Footer } from "@/component/layout/footer";
+// import { Header } from "@/component/layout/header";
+// import { Footer } from "@/component/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

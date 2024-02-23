@@ -1,10 +1,12 @@
-import { Typography } from "@mui/material";
-//import { RecordContents } from "@/app/(login)/record/content";
+import RecordContent  from "./content";
 
 export default function RecordPage() {
   return (
     <>
-      <Typography>記録一覧</Typography>
+      {/*記録一覧*/}
+      <><h1 style={{textAlign: "center", marginTop: 30}}>記録一覧</h1></>
+      <RecordContent />
+      <RecordContent />
     </>
   );
 }

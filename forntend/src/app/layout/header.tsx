@@ -9,10 +9,10 @@ export function Header() {
       justifyContent="space-between"
       alignItems="center"
       spacing={2}
-      sx={{ px: '20px', bgcolor: '#4496d3' }}
+      sx={{ px: '20px', bgcolor: '#68a4d9' }}
       height="80px"
     >
-      <Typography fontSize={32} color="white">
+      <Typography sx={{fontSize: '30px', color: "white"}}>
         スキー記録  
       </Typography>
       <IconButton />
