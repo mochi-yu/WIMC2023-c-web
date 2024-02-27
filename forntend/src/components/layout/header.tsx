@@ -9,7 +9,7 @@ export function Header() {
       alignItems='center'
       spacing={2}
       sx={{ px: "20px", bgcolor: "#68a4d9" }}
-      height='80px'
+      height='60px'
     >
       <Typography sx={{ fontSize: "30px", color: "white" }}>スキー記録</Typography>
       <LogoutIconButton />
