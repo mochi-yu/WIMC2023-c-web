@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Box, Container, CssBaseline, Paper } from "@mui/material";
 import { Inter } from "next/font/google";
-import { AuthProvider } from "@/context/auth";
+import { AuthProvider } from "@/components/contexts/auth";
 // import { Header } from "@/component/layout/header";
 // import { Footer } from "@/component/layout/footer";
 
