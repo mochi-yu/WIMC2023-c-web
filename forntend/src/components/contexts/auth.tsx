@@ -3,7 +3,7 @@
 import { createContext, useEffect, useState, ReactNode, Dispatch, SetStateAction } from "react";
 import { auth } from "@/lib/firebase";
 import { User } from "firebase/auth";
-import { Loading } from "@/components/loading";
+import { Loading } from "@/components/ui/loading";
 
 // Contextの定義
 type AuthContextProps = {

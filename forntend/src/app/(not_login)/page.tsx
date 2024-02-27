@@ -6,6 +6,7 @@ export default function RootPage() {
     <>
       <Stack justifyContent='center' alignItems='center' height='100vh' spacing='50px'>
         <Stack alignItems='center'>
+          {/* TODO: 題字を追加 */}
           <Typography variant='h5'>Web IoT メイカーズチャレンジ</Typography>
           <Typography variant='h5'>信州Cチーム</Typography>
         </Stack>
