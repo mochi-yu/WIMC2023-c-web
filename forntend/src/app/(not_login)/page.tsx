@@ -1,9 +1,17 @@
-import { Typography } from "@mui/material";
+import { GoogleLoginButton } from "@/components/ui/button/login_google";
+import { Stack, Typography } from "@mui/material";
 
 export default function RootPage() {
   return (
     <>
-      <Typography>Root</Typography>
+      <Stack justifyContent='center' alignItems='center' height='100vh' spacing='50px'>
+        <Stack alignItems='center'>
+          {/* TODO: 題字を追加 */}
+          <Typography variant='h5'>Web IoT メイカーズチャレンジ</Typography>
+          <Typography variant='h5'>信州Cチーム</Typography>
+        </Stack>
+        <GoogleLoginButton />
+      </Stack>
     </>
-  )
+  );
 }
