@@ -11,7 +11,8 @@ import { Grid } from '@mui/material';
 
 export default function FormPropsTextFields() {
   return (
-    <><Box
+    <>
+    <Box
       component="form"
       sx={{
         '& .MuiTextField-root': { m: 1, width: '27ch' },
@@ -24,33 +25,39 @@ export default function FormPropsTextFields() {
         <OutlinedInput
           id="filled-far-input"
           type="Targetfar"
-          endAdornment={<InputAdornment position="end">m</InputAdornment>}
+          endAdornment={<InputAdornment position="end">Km</InputAdornment>}
           sx={{ float: "left", width: '15ch', marginLeft: '7ch' }} />
         <h4 style={{ paddingTop: '1ch' }}>あたりの目標設定</h4>
       </div><br />
       <div>
         <TextField
           id="TGtime"
-          label="目標タイム"
-          type="Targettime" />
+          label="目標タイム 分:秒"
+          type="time" 
+        />
       </div><br />
       <div>
         <TextField
           id="TGspeed"
           label="目標速度"
-          type="Targetspeed" />
+          type="text"
+
+        />
       </div><br />
       <div>
         <TextField
           id="TGmemo"
           label="その他メモ"
-          type="Targetmemo" />
+          type="text"
+        />
       </div><br />
     </Box>
+
     <Grid container justifyContent={'flex-end'}>
-      <IconButton aria-label="Save" size="large">
-      <SaveIcon fontSize="inherit" />
-    </IconButton>
+      <IconButton type='submit' aria-label="Save">
+        <SaveIcon fontSize="large" sx={{color: "#007199"}}  />
+        <label style={{fontSize: 15}}>保存</label>
+      </IconButton>
     </Grid>
     </>
   );

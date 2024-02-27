@@ -18,7 +18,7 @@ export default function NestedGrid() {
   return (
     <><Box>
       <Grid container spacing={10} justifyContent={'center'}>
-        <Grid container xs={12} md={9} lg={8} spacing={4}>
+        <Grid container xs={10} md={9} lg={8} spacing={5}>
 
           <Grid xs={30} lg={3}>
             <Item sx={{ backgroundColor: '#f7f6fb' }}>
@@ -35,7 +35,7 @@ export default function NestedGrid() {
               <Box component="ul" aria-labelledby="RecentRecord"
                 sx={{
                   fontSize: '16px',
-                  marginLeft: '10px',
+                  marginLeft: '30px',
                   textAlign: 'left',
                   listStyle: 'none'
                 }}>
@@ -48,7 +48,7 @@ export default function NestedGrid() {
           </Grid>
         </Grid>
       </Grid>
-    </Box>
+    </Box><br></br>
   </>
   );
 }

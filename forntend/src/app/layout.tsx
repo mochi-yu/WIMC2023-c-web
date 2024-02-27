@@ -8,7 +8,7 @@ import { AuthProvider } from "@/components/contexts/auth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "WIMC2023 C",
+  title: "スキー記録",
   description: "スポーツの記録をお手軽に確認",
 };
 
