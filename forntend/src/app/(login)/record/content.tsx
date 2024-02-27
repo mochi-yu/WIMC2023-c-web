@@ -30,7 +30,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-
 function createData(
   time: string,
   speed: string,
@@ -52,13 +51,12 @@ const rows = [
 export default function BasicTable() {
   return (
     <>
-    <><h3 style={{marginTop: 40, padding: 10}}>{formatday}</h3></>
+    <><h3 style={{marginTop: 20, padding: 10}}>{formatday}</h3></>
     <TableContainer
       component={Paper}
       sx={{
-        width: 380, 
-        marginLeft: 1, 
-        marginRight: 1
+        width: 300, 
+        margin: 'auto', 
       }}
     >
       <Table>
