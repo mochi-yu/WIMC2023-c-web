@@ -30,19 +30,21 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(time: string, speed: string, date: string) {
-  return { time, speed, date };
+function createData(time: string, speed: string, date_hms: string) {
+  return { time, speed, date_hms };
 }
 
 const day = new Date();
 const formatday = format(day, "yyyy年MM月dd日");
 const hms = format(day, "HH:mm:ss");
 
-const rows = [
-  createData("10分50秒", "100m/s", hms),
-  createData("10分50秒", "100m/s", hms),
-  createData("10分50秒", "100m/s", hms),
-];
+// export function Record() {
+  const rows = [
+    createData("10分50秒", "101m/s", hms),
+    createData("9分51秒", "110m/s", hms),
+    createData("11分50秒", "98m/s", hms),
+  ];
+//}
 
 export default function BasicTable() {
   return (
@@ -75,7 +77,7 @@ export default function BasicTable() {
                   {row.time}
                 </StyledTableCell>
                 <StyledTableCell align='center'>{row.speed}</StyledTableCell>
-                <StyledTableCell align='center'>{row.date}</StyledTableCell>
+                <StyledTableCell align='center'>{row.date_hms}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

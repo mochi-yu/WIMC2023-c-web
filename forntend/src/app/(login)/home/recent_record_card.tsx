@@ -32,17 +32,20 @@ export function RecentRecordCard() {
       >
         <Box
           sx={{
-            backgroundColor: "#b2cbe4",
-            fontSize: "16px",
+            backgroundColor: "#4496d3",
+            fontSize: "20px",
             textAlign: "center",
+            mb: "20px",
+            color: "white"
           }}
         >
           最新の記録
         </Box>
         <Stack
           sx={{
-            fontSize: "16px",
+            fontSize: "20px",
             alignItems: "center",
+            mb: "20px"
           }}
         >
           <Stack>

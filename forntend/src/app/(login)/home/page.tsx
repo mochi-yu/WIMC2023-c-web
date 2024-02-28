@@ -1,12 +1,32 @@
 import { RecentRecordCard } from "./recent_record_card";
+import { Stack } from "@mui/material";
+import Map from "./map";
+import { Zen_Maru_Gothic } from "next/font/google";
 
+const zen = Zen_Maru_Gothic({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+})
+
+ {/*ホーム*/}
 export default function HomePage() {
   return (
-    <>
-      {/*ホーム*/}
-      <h1 style={{ textAlign: "center", marginTop: 30 }}>ホーム</h1>
-      <RecentRecordCard />
-      {/*ここに Google Map埋め込みたい*/}
-    </>
+    <Stack className={zen.className} style={{ backgroundColor: "#fff9f4"}}>
+      <Stack sx={{marginTop: 5}}>
+        <RecentRecordCard />
+      </Stack>
+      
+      <h2 style={{ 
+        textAlign: "center", 
+        margin: 30,
+        borderRadius: "10px",
+        backgroundColor: "#4496d3",
+        color: "white"
+      }}>
+        スキーコース
+      </h2>
+      <Map /><br />
+    </Stack>
   );
 }

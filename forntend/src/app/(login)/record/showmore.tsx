@@ -17,7 +17,7 @@ export default function SimpleAccordion() {
           aria-controls='panel1a-content'
           id='panel1a-header'
         >
-          <Typography>Show More</Typography>
+          <Typography>もっと見る</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <RecordContent />
