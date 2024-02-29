@@ -15,8 +15,9 @@ export default function HomePage() {
     <Stack className={zen.className} style={{ backgroundColor: "#fff9f4"}}>
       <Stack sx={{marginTop: 5}}>
         <RecentRecordCard />
-      </Stack>
+      </Stack><br />
       
+      <line style={{width: "100%", border: "double #4496d3 3px"}}></line>
       <h2 style={{ 
         textAlign: "center", 
         margin: 30,

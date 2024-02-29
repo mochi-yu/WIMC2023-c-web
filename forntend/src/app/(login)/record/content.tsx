@@ -10,6 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { format } from "date-fns";
+import { Stack } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -48,15 +49,15 @@ const hms = format(day, "HH:mm:ss");
 
 export default function BasicTable() {
   return (
-    <>
-      <>
-        <h3 style={{ marginTop: 20, padding: 10 }}>{formatday}</h3>
-      </>
+    <Stack>
+      <h3 style={{ marginTop: 20, padding: 10 }}>{formatday}</h3>
       <TableContainer
         component={Paper}
         sx={{
           width: 300,
-          margin: "auto",
+          m: "auto",
+          mb: "30px",
+          border: "5px black"
         }}
       >
         <Table>
@@ -83,6 +84,6 @@ export default function BasicTable() {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Stack>
   );
 }

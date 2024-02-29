@@ -21,7 +21,7 @@ export default function RecordPage() {
         padding: "0.2em 0.5em",
         width: 300,
         margin: "auto",
-        marginTop: "20px",
+        marginTop: "30px",
         textAlign: "center",
         borderRadius: "10px",
         color: "white"
