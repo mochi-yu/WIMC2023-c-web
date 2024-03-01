@@ -227,6 +227,36 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/User'
+  /users/{userId}/name:
+    patch:
+      summary: ユーザ名を更新する
+      tags:
+        - User
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+          description: ユーザID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                updateName:
+                  type: string
+      responses:
+        '200':
+          description: ユーザ名を更新
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
 
 components:
   schemas:
