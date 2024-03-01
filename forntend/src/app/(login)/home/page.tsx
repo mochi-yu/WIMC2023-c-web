@@ -12,7 +12,7 @@ const zen = Zen_Maru_Gothic({
  {/*ホーム*/}
 export default function HomePage() {
   return (
-    <Stack className={zen.className} style={{ backgroundColor: "#fff9f4"}}>
+    <Stack className={zen.className} sx={{ backgroundColor: "#fff9f4"}}>
       <Stack sx={{marginTop: 5}}>
         <RecentRecordCard />
       </Stack><br />
