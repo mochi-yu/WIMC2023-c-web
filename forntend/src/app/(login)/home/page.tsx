@@ -9,13 +9,11 @@ const zen = Zen_Maru_Gothic({
   display: "swap",
 });
 
-{
-  /*ホーム*/
-}
+// ホーム
 export default function HomePage() {
   const userName = "サンプルユーザー";
   return (
-    <Stack className={zen.className} sx={{ backgroundColor: "#fff9f4" }}>
+    <Stack className={zen.className}>
       <Stack sx={{ margin: "30px", marginBottom: "0px" }}>
         <Typography variant='h5'>{userName} さん</Typography>
         <Button sx={{ width: "120px", alignItems: "left" }}>ユーザ名を変更</Button>
