@@ -10,25 +10,27 @@ export function useFormContent() {
   const [memo, setMemo] = useState(cookies.memo as string);
 
   function handleDistanceChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setDistance(e.target.value)
+    setDistance(e.target.value);
   }
   function handleTimeChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setTime(e.target.value)
+    setTime(e.target.value);
   }
   function handleSpeedChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setSpeed(e.target.value)
+    setSpeed(e.target.value);
   }
   function handleMemoChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setMemo(e.target.value)
+    setMemo(e.target.value);
   }
 
   function handleSave() {
-    setCookie("distance", distance);
-    setCookie("time", time);
-    setCookie("speed", speed);
-    setCookie("memo", memo);
+    setCookie("distance", distance || "");
+    setCookie("time", time || "");
+    setCookie("speed", speed || "");
+    setCookie("memo", memo || "");
   }
 
-  return [{distance, time, speed, memo}, {handleDistanceChange, handleTimeChange, handleSpeedChange, handleMemoChange, handleSave}]
-
+  return [
+    { distance, time, speed, memo },
+    { handleDistanceChange, handleTimeChange, handleSpeedChange, handleMemoChange, handleSave },
+  ];
 }
