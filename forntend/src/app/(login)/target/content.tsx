@@ -3,35 +3,30 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import SaveIcon from '@mui/icons-material/Save';
 import { Grid, Stack } from '@mui/material';
 
-export interface FormValue {
-  distance: string;
-  time: string;
-  speed: string;
-  memo: string;
-}
-
-const formValue: FormValue = {
-  distance: '',
-  time: '',
-  speed: '',
-  memo: ''
-};
+//cookie//
+import { useCookies } from "react-cookie";
+import { useFormContent } from './useFormContent';
 
 const Form = () => {
-  const [values, setValues] = React.useState(formValue);
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setValues({
-      ...values,
-      [name]: value,//fullName:value,email:valueの省略形
-    });
-  };
+  const [{
+    distance,
+    time,
+    speed,
+    memo
+  }, {
+    handleDistanceChange,
+    handleTimeChange,
+    handleSpeedChange,
+    handleMemoChange,
+    handleSave
+  }] = useFormContent()
+
+  const [cookies] = useCookies(["distance", "time", "speed", "memo"]);
+
   return (
     <Stack>
       <Box sx={{
@@ -41,8 +36,8 @@ const Form = () => {
         <TextField
           name="distance"
           label="距離"
-          value={values.distance}
-          onChange={handleInputChange}
+          value={distance}
+          onChange={handleDistanceChange}
           sx={{ 
             backgroundColor: "white" 
           }} 
@@ -63,8 +58,8 @@ const Form = () => {
           id="TGtime"
           label="目標タイム 分:秒"
           name="time" 
-          value={values.time}
-          onChange={handleInputChange}
+          value={time}
+          onChange={handleTimeChange}
           sx={{backgroundColor: "white"}}
         />
       </div><br />
@@ -73,8 +68,8 @@ const Form = () => {
           id="TGspeed"
           label="目標速度"
           name="speed"
-          value={values.speed}
-          onChange={handleInputChange}
+          value={speed}
+          onChange={handleSpeedChange}
           sx={{backgroundColor: "white"}}
         />
       </div><br />
@@ -83,8 +78,8 @@ const Form = () => {
           id="TGmemo"
           label="その他メモ"
           name="memo"
-          value={values.memo}
-          onChange={handleInputChange}
+          value={memo}
+          onChange={handleMemoChange}
           sx={{backgroundColor: "white"}}
         />
       </div><br />
@@ -92,15 +87,12 @@ const Form = () => {
 
   
     <Grid container justifyContent={'flex-end'}>
-      <IconButton type='submit' onClick={(event) => {
-        alert("保存しました");
-        console.log(values);
-      }}>
+      <IconButton type='submit' onClick={handleSave}>
         <SaveIcon fontSize="large" sx={{color: "#007199", }}  />
         <label style={{fontSize: 15}}>保存</label>
       </IconButton>
     </Grid>
-		<line style={{width: "100%", border: "double #4496d3 3px"}}></line>
+		<hr style={{width: "100%", border: "double #4496d3 3px"}}></hr>
     <h2 style={{ 
         textAlign: "center", 
         margin: 30,
@@ -119,11 +111,12 @@ const Form = () => {
       borderRadius: "4px",
       boxShadow: "2px 2px 5px rgba(0,0,0,0.5)",
     }}>
+
       <ul>
-        <li>距離：{[values.distance]}</li>
-        <li>目標タイム：{[values.time]}</li>
-        <li>目標速度：{[values.speed]}</li>
-        <li>メモ：{[values.memo]}</li>
+        <li>距離：{cookies.distance}</li>
+        <li>目標タイム：{cookies.time}</li>
+        <li>目標速度：{cookies.speed}</li>
+        <li>メモ：{cookies.memo}</li>
       </ul>
     </Box>
     </Stack>

@@ -8,12 +8,10 @@ const zen = Zen_Maru_Gothic({
   display: "swap",
 });
 
-{
-  /*目標設定*/
-}
+{/*目標設定*/}
 export default function TargetPage() {
   return (
-    <Stack className={zen.className}>
+    <Stack className={zen.className} sx={{backgroundColor: "#fff9f4"}}>
       <h1
         style={{
           background: "#68a9cf",
