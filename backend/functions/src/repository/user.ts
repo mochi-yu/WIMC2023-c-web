@@ -2,6 +2,28 @@ import * as admin from "firebase-admin";
 import { User } from "../model/user";
 import { FieldValue } from "firebase-admin/firestore";
 
+// 新しいユーザを追加
+export const addNewUser = async (uuid: string) => {
+  // コレクションの参照を取得
+  const userCollectionRef = admin.firestore().collection("users");
+  const userCount = await userCollectionRef
+    .count()
+    .get()
+    .then((res) => {
+      return res.data().count;
+    });
+
+  // ユーザテーブルにログインした人の情報を追加
+  await userCollectionRef.doc(uuid).set({
+    userId: uuid,
+    userName: "サンプルユーザ" + (userCount + 1),
+    joinedAt: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
+  });
+
+  return;
+};
+
 // 全てのユーザを取得
 export const getAllUser = async (): Promise<User[]> => {
   const userTableRef = admin.firestore().collection("users");
