@@ -16,7 +16,7 @@ export const addNewUser = async (uuid: string) => {
   // ユーザテーブルにログインした人の情報を追加
   await userCollectionRef.doc(uuid).set({
     userId: uuid,
-    userName: "サンプルユーザ" + (userCount + 1),
+    userName: "ユーザ" + (userCount + 1),
     joinedAt: FieldValue.serverTimestamp(),
     updatedAt: FieldValue.serverTimestamp(),
   });
