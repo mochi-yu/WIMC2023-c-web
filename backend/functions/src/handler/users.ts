@@ -1,5 +1,5 @@
 import * as express from "express";
-import { GetUserUsecase, getUserByUserIdUsecase } from "../usecase/user";
+import { GetUserUsecase, UpdateUserNameUsecase, getUserByUserIdUsecase } from "../usecase/user";
 
 export const userRouter = express.Router();
 
@@ -20,7 +20,20 @@ userRouter.get("/users/:userId", async (req, res) => {
   return;
 });
 
-userRouter.post("/users/:userId/name", async (req, res) => {
-  res.status(201).send("post /users/:userId/name");
+userRouter.patch("/users/:userId/name", async (req, res) => {
+  const userId = req.params["userId"];
+  const userName = req.body["updateName"];
+
+  await UpdateUserNameUsecase(userId, userName)
+    .catch((e) => {
+      console.log(e);
+      res.status(500);
+    })
+    .then(() => {
+      res.status(200);
+    });
+
+  res.send();
+
   return;
 });

@@ -1,5 +1,6 @@
 import * as admin from "firebase-admin";
 import { User } from "../model/user";
+import { FieldValue } from "firebase-admin/firestore";
 
 // 全てのユーザを取得
 export const getAllUser = async (): Promise<User[]> => {
@@ -17,6 +18,7 @@ export const getAllUser = async (): Promise<User[]> => {
   return users;
 };
 
+// ユーザIDで指定したユーザを取得
 export const getUserByUserId = async (userId: string): Promise<User> => {
   const userTableRef = admin.firestore().collection("users");
   const result = await userTableRef.doc(userId).get();
@@ -27,4 +29,17 @@ export const getUserByUserId = async (userId: string): Promise<User> => {
   };
 
   return user;
+};
+
+// ユーザ名を更新
+export const updateUserName = async (userId: string, userName: string) => {
+  const userTableRef = admin.firestore().collection("users");
+  const docRef = userTableRef.doc(userId);
+
+  await docRef.update({
+    updatedAt: FieldValue.serverTimestamp(),
+    userName: userName,
+  });
+
+  return;
 };
