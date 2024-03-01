@@ -30,10 +30,6 @@ export function Footer() {
 
     return (
       <BottomNavigationAction
-        sx={{
-          color: "#202f55",
-          ":hover": { color: "white" },
-        }}
         key={elm.label}
         value={elm.link_to}
         label={

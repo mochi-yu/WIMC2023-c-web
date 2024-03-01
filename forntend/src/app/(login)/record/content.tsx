@@ -10,6 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { format } from "date-fns";
+import { Stack } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -30,31 +31,33 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(time: string, speed: string, date: string) {
-  return { time, speed, date };
+function createData(time: string, speed: string, date_hms: string) {
+  return { time, speed, date_hms };
 }
 
 const day = new Date();
 const formatday = format(day, "yyyy年MM月dd日");
 const hms = format(day, "HH:mm:ss");
 
-const rows = [
-  createData("10分50秒", "100m/s", hms),
-  createData("10分50秒", "100m/s", hms),
-  createData("10分50秒", "100m/s", hms),
-];
+// export function Record() {
+  const rows = [
+    createData("10分50秒", "101m/s", hms),
+    createData("9分51秒", "110m/s", hms),
+    createData("11分50秒", "98m/s", hms),
+  ];
+//}
 
 export default function BasicTable() {
   return (
-    <>
-      <>
-        <h3 style={{ marginTop: 20, padding: 10 }}>{formatday}</h3>
-      </>
+    <Stack>
+      <h3 style={{ marginTop: 20, padding: 10 }}>{formatday}</h3>
       <TableContainer
         component={Paper}
         sx={{
           width: 300,
-          margin: "auto",
+          m: "auto",
+          mb: "30px",
+          border: "5px black"
         }}
       >
         <Table>
@@ -75,12 +78,12 @@ export default function BasicTable() {
                   {row.time}
                 </StyledTableCell>
                 <StyledTableCell align='center'>{row.speed}</StyledTableCell>
-                <StyledTableCell align='center'>{row.date}</StyledTableCell>
+                <StyledTableCell align='center'>{row.date_hms}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Stack>
   );
 }

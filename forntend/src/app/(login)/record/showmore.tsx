@@ -7,22 +7,24 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import RecordContent from "./content";
+import { Stack } from "@mui/material";
 
 export default function SimpleAccordion() {
   return (
-    <div>
-      <Accordion sx={{ margin: "auto", marginTop: 8 }}>
+    <Stack sx={{m: "auto"}}>
+      <Accordion sx={{ mt: 8 }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls='panel1a-content'
           id='panel1a-header'
+          style={{backgroundColor: "#4496d3", color:"white"}}
         >
-          <Typography>Show More</Typography>
+          <Typography >もっと見る</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails style={{backgroundColor: "#fff9f4"}}>
           <RecordContent />
         </AccordionDetails>
       </Accordion>
-    </div>
+    </Stack>
   );
 }
