@@ -1,5 +1,5 @@
 import { RecentRecordCard } from "./recent_record_card";
-import { Stack } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import Map from "./map";
 import { Zen_Maru_Gothic } from "next/font/google";
 
@@ -13,8 +13,14 @@ const zen = Zen_Maru_Gothic({
   /*ホーム*/
 }
 export default function HomePage() {
+  const userName = "サンプルユーザー";
   return (
     <Stack className={zen.className} sx={{ backgroundColor: "#fff9f4" }}>
+      <Stack sx={{ margin: "30px" }}>
+        <Typography variant='h5'>{userName} さん</Typography>
+        <Button sx={{ width: "120px", alignItems: "left" }}>ユーザ名を変更</Button>
+      </Stack>
+
       <Stack sx={{ marginTop: 5 }}>
         <RecentRecordCard />
       </Stack>
