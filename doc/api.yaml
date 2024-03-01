@@ -223,10 +223,33 @@ paths:
               schema:
                 type: object
                 properties:
-                  places:
+                  users:
                     type: array
                     items:
                       $ref: '#/components/schemas/User'
+  /users/{userId}:
+    get:
+      summary: ユーザ情報の取得
+      description: ユーザの情報を取得する
+      tags:
+        - User
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+          description: ユーザID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/User'
   /users/{userId}/name:
     patch:
       summary: ユーザ名を更新する
