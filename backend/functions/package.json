@@ -4,8 +4,8 @@
     "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "serve": "pnpm run build:watch && firebase emulators:start",
-    "shell": "pnpm run build:watch && firebase functions:shell",
+    "serve": "firebase emulators:start",
+    "shell": "pnpm run build && firebase functions:shell",
     "start": "pnpm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
