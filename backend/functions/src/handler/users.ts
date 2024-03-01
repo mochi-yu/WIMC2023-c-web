@@ -4,6 +4,10 @@ import { GetUserUsecase, UpdateUserNameUsecase, getUserByUserIdUsecase } from ".
 export const userRouter = express.Router();
 
 userRouter.get("/users", async (_, res) => {
+  res.set("Access-Control-Allow-Headers", "*");
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS, POST");
+
   const users = await GetUserUsecase();
   res.json({ users: users }).status(200);
 
@@ -11,6 +15,10 @@ userRouter.get("/users", async (_, res) => {
 });
 
 userRouter.get("/users/:userId", async (req, res) => {
+  res.set("Access-Control-Allow-Headers", "*");
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS, POST");
+
   const userId = req.params["userId"];
   if (userId == "") res.status(400);
 
@@ -21,6 +29,10 @@ userRouter.get("/users/:userId", async (req, res) => {
 });
 
 userRouter.patch("/users/:userId/name", async (req, res) => {
+  res.set("Access-Control-Allow-Headers", "*");
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS, POST");
+
   const userId = req.params["userId"];
   const userName = req.body["updateName"];
 

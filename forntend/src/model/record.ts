@@ -1,4 +1,4 @@
-interface RecordData {
+export interface RecordData {
   userID: string;
   userName: string;
   courseID: string;
@@ -9,7 +9,7 @@ interface RecordData {
   records: RawRecordData[];
 }
 
-interface RawRecordData {
+export interface RawRecordData {
   time: number;
   lat: number;
   lon: number;
