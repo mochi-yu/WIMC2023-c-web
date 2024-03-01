@@ -38,6 +38,7 @@ const Map = () => {
         height: "300px", 
         width: "300px", 
         borderRadius: "6px",
+        zIndex: 0
       }}
     >
       <TileLayer
