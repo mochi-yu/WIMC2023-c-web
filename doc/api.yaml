@@ -1,0 +1,294 @@
+openapi: 3.0.0
+info:
+  title: WIMC2023-Shinshu-C
+  version: '0.1'
+  description: Web IoTメイカーズチャレンジ2023 信州Cチームで作成したアプリのAPI
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: http://127.0.0.1:5001/wimc2023-c-web/us-central1/v1
+    description: ローカル環境
+  - url: https://example1.com
+    description: 本番環境
+tags:
+  - name: Record
+    description: 記録に関するエンドポイント
+  - name: Place
+    description: 場所に関するエンドポイント
+  - name: User
+    description: ユーザに関するエンドポイント
+paths:
+  /places:
+    get:
+      summary: 場所の一覧の取得
+      description: 場所の一覧を取得する
+      tags:
+        - Place
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Place'
+    post:
+      summary: 新しい場所の追加
+      tags:
+        - Place
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                placeName:
+                  description: 場所の名前
+                  type: string
+                lat:
+                  description: 緯度
+                  type: number
+                lon:
+                  description: 経度
+                  type: number
+      responses:
+        '200':
+          description: 新しい場所を追加
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+  /places/{placeId}:
+    put:
+      summary: 場所の情報の更新
+      tags:
+        - Place
+      parameters:
+        - in: path
+          name: placeId
+          required: true
+          schema:
+            type: string
+          description: 更新対象の場所のID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                updatePlace:
+                  $ref: "#/components/schemas/Place"
+      responses:
+        '200':
+          description: 場所の情報を更新
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+    delete:
+      summary: 場所の情報の削除
+      tags:
+        - Place
+      parameters:
+        - in: path
+          name: placeId
+          required: true
+          schema:
+            type: string
+          description: 削除対象の場所のID
+      responses:
+        '200':
+          description: 場所の情報を削除
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+  /records:
+    get:
+      summary: 記録の一覧の取得
+      description: 記録の一覧を取得する
+      security:
+        - loginAuth: []
+      tags:
+        - Record
+      parameters:
+        - in: query
+          name: placeId
+          schema:
+            type: string
+          description: 特定の場所の記録を取得する
+        - in: query
+          name: userId
+          schema:
+            type: string
+          description: 特定のユーザの記録を取得する
+        - in: query
+          name: limit
+          schema:
+            type: number
+          description: 記録の取得件数を指定する
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  records:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Record'
+    post:
+      summary: 新しい記録の追加
+      description: |
+        配列で生データを複数渡す。パスパラメータで記録のIDを指定し、まだない場合にはそのIDで新規追加を、既にある場合は記録の追加を行う。
+      tags:
+        - Record
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rawRecords:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/RawRecord"
+      responses:
+        '200':
+          description: 新しい記録を追加
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+  /record/{recordId}/place:
+    patch:
+      summary: 記録の場所を更新する
+      tags:
+        - Record
+      parameters:
+        - in: path
+          name: placeId
+          required: true
+          schema:
+            type: string
+          description: 更新対象の記録のID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                placeId:
+                  type: string
+      responses:
+        '200':
+          description: 新しい記録を追加
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+  /users:
+    get:
+      summary: ユーザの一覧の取得
+      description: ユーザの一覧を取得する
+      tags:
+        - User
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+
+components:
+  schemas:
+    Place:
+      type: object
+      properties:
+        placeId:
+          description: 場所のID
+          type: string
+        placeName:
+          description: 場所の名前
+          type: string
+        lat:
+          description: 緯度
+          type: number
+        lon:
+          description: 経度
+          type: number
+    Record:
+      type: object
+      properties:
+        userId:
+          description: ユーザのID
+          type: string
+        courseId:
+          description: 場所のID
+          type: string
+        distance:
+          description: 移動距離
+          type: number
+        maxSpeed:
+          description: 最高速度
+          type: number
+        totalTime:
+          description: 記録時間
+          type: number
+        records:
+          description: 実施の記録
+          type: array
+          items:
+            $ref: "#/components/schemas/RawRecord"
+    RawRecord:
+      type: object
+      properties:
+        time:
+          description: 記録時間
+          type: number
+        lat:
+          description: 緯度
+          type: number
+        lon:
+          description: 経度
+          type: number
+        speed:
+          description: 移動速度
+          type: number
+    User:
+      type: object
+      properties:
+        userId:
+          description: ユーザID
+          type: string
+        userName:
+          description: ユーザ名
+          type: string
