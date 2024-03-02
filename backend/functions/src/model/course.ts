@@ -1,4 +1,6 @@
 export interface CourseData {
-  courseId: string;
+  placeId: string;
   placeName: string;
+  lat: number;
+  lon: number;
 }
