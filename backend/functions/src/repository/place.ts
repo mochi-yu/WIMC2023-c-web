@@ -9,10 +9,10 @@ export const getAllPlaces = async (): Promise<CourseData[]> => {
   const places: CourseData[] = [];
   result.forEach((elm) => {
     places.push({
-      placeId: elm.get("placeId"),
-      placeName: elm.get("placeName"),
-      lat: elm.get("lat"),
-      lon: elm.get("lon"),
+      placeId: elm.data()["placeId"],
+      placeName: elm.data()["placeName"],
+      lat: elm.data()["lat"],
+      lon: elm.data()["lon"],
     });
   });
 

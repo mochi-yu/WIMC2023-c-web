@@ -4,15 +4,14 @@ import { CourseData } from "../model/course";
 
 export const placeRouter = express.Router();
 
-placeRouter.get("/places", async (req, res) => {
+placeRouter.get("/places", async (_, res) => {
   res.set("Access-Control-Allow-Headers", "*");
   res.set("Access-Control-Allow-Origin", "*");
   res.set("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS, POST");
 
-  const places = getPlace();
+  const places = await getPlace();
   res.status(200).json({ places: places });
 
-  res.status(200).send("get /place");
   return;
 });
 
@@ -28,8 +27,8 @@ placeRouter.post("/places", async (req, res) => {
     lon: req.body["lon"],
   };
   postPlace(newPlace);
+  res.status(200).json({ status: "ok" });
 
-  res.status(201).send("post /place");
   return;
 });
 
