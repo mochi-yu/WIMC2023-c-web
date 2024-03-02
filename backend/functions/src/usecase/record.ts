@@ -24,7 +24,7 @@ export const postRecord = async (raw: RawRecordData[], userId: string): Promise<
   const record: RecordData = {
     userID: userId,
     userName: u.userName || "",
-    courseID: "0",
+    courseID: "WVb8znl81Z190qfnRXC0PQ",
     distance: distance,
     maxSpeed: maxSpeed,
     totalTime: raw[raw.length - 1].time - raw[0].time,
