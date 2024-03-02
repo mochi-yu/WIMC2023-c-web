@@ -20,6 +20,9 @@ dependencies:
   firebase-functions:
     specifier: ^4.7.0
     version: 4.7.0(firebase-admin@11.11.1)
+  uuid-wand:
+    specifier: ^1.0.3
+    version: 1.0.3
 
 devDependencies:
   '@types/cors':
@@ -5057,6 +5060,10 @@ packages:
   /utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
+
+  /uuid-wand@1.0.3:
+    resolution: {integrity: sha512-qMxqpWclFgzzsH5niW7MndZpVqFra7VRNE/sz+9+FRndO3Iq1KnzH7dEgBonAAAEyGliZTgU/gM3xv7ZMsATuQ==}
+    dev: false
 
   /uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}

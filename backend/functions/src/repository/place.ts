@@ -1,5 +1,6 @@
 import { CourseData } from "../model/course";
 import * as admin from "firebase-admin";
+import UuidGenerator from "uuid-wand";
 
 export const getAllPlaces = async (): Promise<CourseData[]> => {
   const placeTable = admin.firestore().collection("places");
@@ -16,4 +17,21 @@ export const getAllPlaces = async (): Promise<CourseData[]> => {
   });
 
   return places;
+};
+
+export const addNewPlace = async (data: CourseData) => {
+  const placeTable = admin.firestore().collection("places");
+
+  const uuid = UuidGenerator.shortUuid();
+  data.placeId = uuid;
+  await placeTable.doc(uuid).set(data);
+
+  return;
+};
+
+export const deletePlace = async (id: string) => {
+  const placeTable = admin.firestore().collection("places");
+  await placeTable.doc(id).delete();
+
+  return;
 };

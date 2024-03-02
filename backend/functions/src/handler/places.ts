@@ -1,5 +1,6 @@
 import * as express from "express";
-import { getPlace } from "../usecase/place";
+import { deletePlaceUsecase, getPlace, postPlace } from "../usecase/place";
+import { CourseData } from "../model/course";
 
 export const placeRouter = express.Router();
 
@@ -20,6 +21,14 @@ placeRouter.post("/places", async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   res.set("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS, POST");
 
+  const newPlace: CourseData = {
+    placeName: req.body["placeName"],
+    placeId: "",
+    lat: req.body["lat"],
+    lon: req.body["lon"],
+  };
+  postPlace(newPlace);
+
   res.status(201).send("post /place");
   return;
 });
@@ -38,6 +47,9 @@ placeRouter.delete("/places/:placeId", async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   res.set("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS, POST");
 
-  res.status(201).send("delete /places/:placeId");
+  const placeId = req.params["placeId"];
+  await deletePlaceUsecase(placeId);
+
+  res.status(200).json({ status: "ok" });
   return;
 });
