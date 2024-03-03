@@ -17,7 +17,6 @@ export const UserName = () => {
   };
 
   const userName = userInfo?.userName || "";
-  console.log(userInfo);
 
   return (
     <Stack sx={{ margin: "30px", marginBottom: "0px" }}>
